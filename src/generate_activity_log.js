@@ -74,13 +74,12 @@ data_prev.statewise.forEach(element => {
 
     }
 });
+
 function fillSpace(str, n = 11) {
     // console.log(str.length);
     empt = Array(n - str.length).join(' ')
     return empt + str;
 }
-
-
 
 function editMessage(last_updated) {
 
@@ -105,7 +104,6 @@ function editMessage(last_updated) {
         r = "(" + rel_states[element].Rd + ") " + rel_states[element].R;
         d = "(" + rel_states[element].Dd + ") " + rel_states[element].D;
 
-
         words += fillSpace(element, n = 2) + fillSpace(c, n = 13) + fillSpace(r) + fillSpace(d) + "\n";
         count++;
         // console.log(rel_states[element]);
@@ -121,7 +119,7 @@ function editMessage(last_updated) {
     // console.log(india_total);
 
     words = india_total + "\n\n```\n" + words + "```";
-    console.log(words);
+
     // BOT_TOKEN = "";
     // url = encodeURI("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage?chat_id=myid&parse_mode=Markdown&text="
     //     + words);
@@ -141,7 +139,6 @@ function editMessage(last_updated) {
 
     return;
 }
-
 
 if (full_text != "") {
 
@@ -171,8 +168,6 @@ if (full_text != "") {
         + formated_time + "_\n\n"
         + tg_full_text
         + "\n\n*www.covid19india.org*";
-
-    console.log(final_text);
 
     url = encodeURI("https://api.telegram.org/bot" + BOT_TOKEN + "/sendmessage?" +
         "disable_web_page_preview=true&parse_mode=Markdown&chat_id=-1001449683810&text=" + final_text);
