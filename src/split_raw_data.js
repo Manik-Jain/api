@@ -1,10 +1,6 @@
 const fs = require('fs');
 const raw_data = require('../tmp/raw_data.json');
 
-
-console.log("fetched rawdata");
-console.log(raw_data.raw_data.length);
-
 // var pid = [];
 
 var states = {};
@@ -37,6 +33,7 @@ raw_data.raw_data.forEach(element => {
             "raw_data": []
         };
     }
+    
     states[element["statecode"]].raw_data.push(element);
 
     date = element["dateannounced"].replace(/\//g, '-')
@@ -49,8 +46,6 @@ raw_data.raw_data.forEach(element => {
 
 });
 
-
-
 for (key in dateitems) {
     if (!key) continue;
     dates.push(key);
@@ -60,8 +55,6 @@ for (key in dateitems) {
     fs.writeFileSync(dir_date + key + '/index.json', JSON.stringify(dateitems[key], null, 2));
 }
 fs.writeFileSync(dir_date + 'index.json', JSON.stringify(dates, null, 2));
-
-
 
 for (key in states) {
     if (!key) continue;
