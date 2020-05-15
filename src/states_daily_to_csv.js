@@ -15,9 +15,6 @@ for (var key in daily.states_daily[0]) {
 recovered_csv = confirmed_csv;
 deceased_csv = confirmed_csv;
 
-console.log(headers);
-console.log(confirmed_csv);
-
 daily.states_daily.forEach(element => {
     switch (element.status) {
         case 'Confirmed':
